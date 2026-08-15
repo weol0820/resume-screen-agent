@@ -1,0 +1,22 @@
+张三
+求职意向：Java 后端开发 / AI 应用开发
+电话：13812345678    邮箱：zhangsan@example.com
+
+教育背景
+2021.09 - 2025.06  某大学  计算机科学与技术  本科
+主修课程：数据结构、操作系统、数据库原理、计算机网络、机器学习导论
+
+工作/实习经历
+2024.07 - 至今  某某科技有限公司  Java 开发实习生
+- 参与订单中心微服务开发（SpringBoot + MyBatis + MySQL），负责订单查询接口与缓存优化（Redis）
+- 编写单元测试与接口文档，使用 Git 协作、Docker 本地部署环境
+- 业余学习大模型与 Agent：了解 Prompt 工程、工具调用、RAG 基本概念，用 Python + FastAPI 做过智能工单处理小项目（调用 DeepSeek API，基于 DeepSeek Harness 编排）
+
+专业技能
+- 语言：Java、Python、SQL
+- 后端：SpringBoot、Spring、MyBatis、MySQL、Redis、Linux、Docker、Git
+- 前端：Vue、JavaScript、HTML、CSS
+- AI 方向：了解大模型 API 调用、Prompt 工程、Agent 工具调用与 RAG 基础
+
+自我评价
+学习能力强，对 AI Agent 应用开发有强烈兴趣，希望从事大模型应用落地方向的工作。
