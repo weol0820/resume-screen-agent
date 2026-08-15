@@ -4,6 +4,7 @@
 fastapi>=0.110
 uvicorn>=0.29
 python-dotenv>=1.0
+python-multipart>=0.0.9
 
 # 简历解析（.pdf / .docx 均支持；.txt 用标准库即可）
 pypdf>=4.0

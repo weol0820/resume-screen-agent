@@ -49,6 +49,7 @@ def build_task_prompt(resume_path: str, jd_path: str, tools_dir: str, python_bin
 - 本机 Python 解释器绝对路径：{python_bin}
 - 业务工具目录绝对路径：{tools_dir}
 - 工具调用形式示例：{python_bin} {tools_dir}/resume_parser.py --file {resume_path}
+- 注意：工具目录与文件路径中可能包含空格，调用时务必用双引号包裹完整路径。
 
 【任务】
 请对以下简历与 JD 完成初筛：
