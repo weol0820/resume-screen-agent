@@ -229,4 +229,4 @@ A：这是 DeepSeek Harness SDK 默认运行时组合的工具调用方式：模
 
 ---
 
-*作者：韦志杰（AI Agent 应用开发方向） · 求职作品集项目 2/2*
+*作者：韦志杰（AI Agent 应用开发方向） · 姊妹项目：[ticket-agent](https://github.com/weol0820/ticket-agent)*
