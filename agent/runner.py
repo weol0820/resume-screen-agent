@@ -16,13 +16,23 @@ import re
 import sys
 import uuid
 
-from deepseek_harness import DeepSeekHarness
+try:
+    from deepseek_harness import DeepSeekHarness
+    HARNESS_AVAILABLE = True
+except ImportError:  # 未安装 SDK，或当前平台没有官方运行时 wheel（如原生 Windows）
+    DeepSeekHarness = None  # type: ignore[assignment]
+    HARNESS_AVAILABLE = False
 
 import config
 from agent.prompts import SYSTEM_PROMPT, build_task_prompt
 
 TOOLS_DIR = str((config.PROJECT_ROOT / "tools").resolve())
 PYTHON_BIN = sys.executable
+
+HARNESS_UNAVAILABLE_MSG = (
+    "DeepSeek Harness Python SDK 运行时不可用：官方运行时 wheel 支持 Linux x64/arm64 与 macOS 14+ arm64，"
+    "Windows 用户请在 WSL2 中运行（安装方式见 README「环境准备」）。"
+    "页面与离线规则引擎不受影响，可先运行 python demo_tools.py 体验解析与打分流程。")
 
 
 def _extract_json(text: str) -> dict | None:
@@ -54,6 +64,8 @@ class ResumeAgent:
         self._harness: DeepSeekHarness | None = None
 
     def _ensure(self) -> DeepSeekHarness:
+        if not HARNESS_AVAILABLE:
+            raise RuntimeError(HARNESS_UNAVAILABLE_MSG)
         if self._harness is None:
             config.AGENT_WORKSPACE.mkdir(parents=True, exist_ok=True)
             config.SESSION_ROOT.mkdir(parents=True, exist_ok=True)
@@ -88,6 +100,8 @@ class ResumeAgent:
               "session_id": str, "finish_reason": str|None,
             }
         """
+        if not HARNESS_AVAILABLE:
+            return {"ok": False, "message": HARNESS_UNAVAILABLE_MSG}
         if not config.DEEPSEEK_API_KEY:
             return {"ok": False,
                     "message": "未配置 DEEPSEEK_API_KEY：请复制 .env.example 为 .env 并填写密钥。"

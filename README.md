@@ -220,6 +220,9 @@ A：技术岗位 JD 的技能词是封闭高频词汇（Python/SpringBoot/MySQL�
 **Q：硬性条件判断错了怎么办？**
 A：`score_match.py` 的 `_check_hard` 返回每条条件的「要求/实际/是否通过/备注」，前端完整展示。规则判错的场景正是 LLM 复核的价值所在（但铁律：硬性不通过时 verdict 必须为“建议淘汰”，规则修正需改代码，保证口径一致）。
 
+**Q：原生 Windows 上能打开页面吗？**
+A：能。页面与离线规则引擎（`demo_tools.py`）在任何平台都能运行；只有提交初筛任务时，页面会友好提示需要 DeepSeek Harness SDK 运行时（官方 wheel 支持 Linux x64/arm64、macOS 14+ arm64），请在 WSL2 中启动完整版。
+
 **Q：Agent 通过 bash 调用 CLI 工具，和函数调用有什么区别？**
 A：这是 DeepSeek Harness SDK 默认运行时组合的工具调用方式：模型面向的是持久 bash 工具，业务能力封装为输出 JSON 的 CLI。好处是每次工具调用都完整落在 JSONL 审计日志中，且工具可以脱离 Agent 单独测试（`demo_tools.py` 即此思路）。
 
